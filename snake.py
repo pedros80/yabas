@@ -1,8 +1,40 @@
-#!/usr/local/bin/python
-#
-# YABAS: Yet Another Blocky, Amateur Snake
-# a "genuine copy" by pedros
-#
+#!/usr/bin/env python
+""" 
+snake.py
+
+Yabas: Yet Another Blocky Amateur Snake.
+
+Copyright (C) 2009 Peter Somerville
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+requires - python 2.x, pygame.
+
+not overly pythonic - re-written to use getters and mutators
+since I was doing Java courses at the time and trying to get
+into that mind set.
+
+all screen output is drawn using pygame, no images etc
+the sounds were recorded by me; snaking & eating...
+
+"""
+
+__author__ = "Peter Somerville"
+__email__ = "peterwsomerville@gmail.com"
+__version__ = "1.0.1"
+__date__ = "21/5/12"
+
 
 import pygame
 import random
@@ -629,11 +661,9 @@ def highScores(scoreTable):
     
     showHS = True # main loop control
     while showHS:
-    
         clock.tick(30) # 30 fps
         screen.blit(bg,(0,0)) # clear screen
         
-
         # if quit or click, back to menu
         for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -651,13 +681,11 @@ def highScores(scoreTable):
         # labels from score board, render then draw
         scoreTable.labels.update()
         scoreTable.labels.draw(screen)
-        
         pygame.display.flip() # display frame
 
                 
 def getName(score,level):
     """ function to get high scoring user's name """
-
     # display
     screen = pygame.display.set_mode((320,320))
     pygame.display.set_caption("High Score - Enter Name")
@@ -666,7 +694,6 @@ def getName(score,level):
     bg.fill((0,0,0))
     # clock
     clock = pygame.time.Clock()
-    
     # labels and value-ising
     lblScore = Label(30)
     lblScore.setText("New High Score: %d. Level %d"%(score,level))
@@ -679,9 +706,7 @@ def getName(score,level):
     lblName = Label(35)
     lblName.setCenter((160,150))
     lblName.setColour((255,255,0))
-    
     labels = pygame.sprite.Group(lblScore,lblPrompt,lblName)
-    
     # main loop control and new name string
     gettingName = True
     name = u""
@@ -689,12 +714,10 @@ def getName(score,level):
     while gettingName:
         clock.tick(30)
         screen.blit(bg,(0,0))
-        
         # check user input
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit()
-        
             # if typing add key to name string    
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_BACKSPACE:
@@ -706,18 +729,15 @@ def getName(score,level):
                     gettingName = False # name finished
                 else:
                     name = name + event.unicode
-        
+    
         # give name label current name value
         lblName.setText(name)    
-        
         # update and display labels
         labels.update()
-        labels.draw(screen)
-        
+        labels.draw(screen)        
         pygame.display.flip() # display frame
             
     return name # final name for user
-
 
 if __name__ == "__main__":
     main()
