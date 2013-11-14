@@ -1,5 +1,8 @@
-## Yabas: Yet Another Blocky Amateur Snake - v1.0 Readme
-Peter Somerville - peterwsomerville@gmail.com
+## Yabas - v1.0 Readme
+[Peter Somerville](http://www.pedros-stuffs.com) - peterwsomerville@gmail.com
+
+### About
+Yet Another Blocky Amateur Snake...
 
 ### License.
 Standard MIT open source; see LICENSE.txt for more information
