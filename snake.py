@@ -150,11 +150,11 @@ class Snake(pygame.sprite.Sprite):
         """ check direction then move at speed """
         if self.dir == 0:
             self.rect.y -= self.speed
-        if self.dir == 90:
+        elif self.dir == 90:
             self.rect.x -= self.speed
-        if self.dir == 180:
+        elif self.dir == 180:
             self.rect.y += self.speed
-        if self.dir == 270:
+        elif self.dir == 270:
             self.rect.x += self.speed
 
     def checkKeys(self):
