@@ -5,7 +5,7 @@
 Yet Another Blocky Amateur Snake...
 
 ### License.
-Standard MIT open source; see LICENSE.txt for more information
+GNU GPL; see LICENSE.txt for more information
 
 ### Installation.
 None required - just type > `python snake.py`
